@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Goal } from './goal';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,5 @@ export class AppComponent {
   constructor(){
     this.goals = ['Watching finding Nemo' , 'Buy cookies', 'Get new phone case']
   }
-  
+
 }
