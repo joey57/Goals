@@ -1,2 +1,4 @@
-export class Goal {
+export class Goal{
+  id!: number;
+  name!: string;
 }
