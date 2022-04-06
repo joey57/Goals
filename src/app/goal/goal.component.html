@@ -6,7 +6,7 @@
     <div class="col-md-6">
       <div *ngFor="let goal of goals;let i = index">
         <div>
-          <h4 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h4>
+          <h6 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h6>
           <button (click)="toggleDetails(i)" class="btn btn-primary">Toggle Details</button>
           </div>
 
@@ -15,8 +15,9 @@
             </div>
       </div>
     </div>
+  <div class="col-md-g">
+    <app-goal-form></app-goal-form>
   </div>
-
-  <p *ngIf="goals.length >5">You have too many goals</p>
-    
+</div>
+  <p *ngIf="goals.length >5">You have too many goals</p>   
 </div>
