@@ -21,10 +21,10 @@ export class GoalComponent implements OnInit {
 
   deleteGoal(isComplete, index){
     if (isComplete){
-      let toDelete = confirm(`Are you sure you want to delete ${this.goals[index].name}?`)
+      let toDelete = confirm(`Are you sure you want to delete ${this.goals[index].name}?`)//creates a prompt 
 
       if(toDelete){
-      this.goals.splice(index,1);
+      this.goals.splice(index,1);// deletes a goal from child component
     }
   }
 }
