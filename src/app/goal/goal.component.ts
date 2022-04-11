@@ -50,8 +50,12 @@ export class GoalComponent implements OnInit {
       author:string;
       quote:string;
     }
-    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>//successful API request
+    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json").subscribe(data=>{//successful API request
     this.quote = new Quote(data.author, data.quote)
-    )}
-
+    },err=>{
+      this.quote = new Quote("Winston churchill", "Never never give up!")
+      console.log("An error occurred")
+    })
+  }
+  
 }
