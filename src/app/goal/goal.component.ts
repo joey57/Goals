@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Goal } from '../goal';
+import { GoalService } from '../goal-service/goal.service';
 
 @Component({
   selector: 'app-goal',
   templateUrl: './goal.component.html',
-  styleUrls: ['./goal.component.css']
+  styleUrls: ['./goal.component.css'],
+  providers: [GoalService]
   // styles: ['h6 {color:red}']
 })
 export class GoalComponent implements OnInit {
+
+  goals:Goal[];
+  
   
   toggleDetails(index){
     this.goals[index].showDescription = !this.goals[index].showDescription;
@@ -28,7 +34,9 @@ export class GoalComponent implements OnInit {
    this.goals.push(goal)
  }
  
-  constructor() { }
+  constructor(goalService:GoalService) {
+    this.goals = goalService.getGoals()
+   }
 
   ngOnInit(): void {
   }
