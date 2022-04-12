@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class GoalComponent implements OnInit {
 
-  goals:Goal[];
+  goals!:Goal[];
   alertService:AlertService;
   quote:Quote;
 
