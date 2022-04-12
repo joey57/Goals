@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Goal } from '../goal';
 import { GoalService } from '../goal-service/goal.service';
 import { AlertService } from '../alert-service/alert.service'; 
+import { QuoteRequestService } from '../quote-http/quote-request.service';
 import { Quote } from '../quote-class/quote';
 
 @Component({
@@ -18,7 +19,6 @@ export class GoalComponent implements OnInit {
   alertService:AlertService;
   quote:Quote;
   
-
   toggleDetails(index){
     this.goals[index].showDescription = !this.goals[index].showDescription;
   }
@@ -40,12 +40,15 @@ export class GoalComponent implements OnInit {
    this.goals.push(goal)
  }
  
-  constructor(goalService:GoalService, alertService:AlertService, private http:HttpClient) {
+  constructor(goalService:GoalService, alertService:AlertService, private http:HttpClient, private quoteService:QuoteRequestService) {
     this.goals = goalService.getGoals()
     this.alertService = alertService;
    }
 
   ngOnInit() {
+    this.quoteService.quoteRequest()
+    this.quote = this.quoteService.quote
+
     interface ApiResponse{
       author:string;
       quote:string;
